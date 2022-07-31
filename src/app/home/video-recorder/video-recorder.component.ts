@@ -3,7 +3,6 @@ import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Store } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
-import * as path from 'path';
 import { interval, Observable, Subscription } from 'rxjs';
 import { AzureKinectService } from '../../shared/services/azure-kinect.service';
 import { ElectronUtilService } from '../../shared/services/electron-util.service';
@@ -178,7 +177,8 @@ export class VideoRecorderComponent implements OnInit, OnDestroy {
     });
     const timestring = this.lastTimeString;
     const commandLines = [...this.commandLines];
-    this.electronUtilService.createFolderIfNotExist(path.join(this.formOptions.value.outputFolder, timestring));
+    // so please use only in windows
+    this.electronUtilService.createFolderIfNotExist(this.formOptions.value.outputFolder + '\\' + timestring);
     let tasks = [];
     tasks = commandLines.map((x, i) => async () => {
       if (i !== this.masterDeviceIndex) {
@@ -210,7 +210,7 @@ export class VideoRecorderComponent implements OnInit, OnDestroy {
     this.tts.countdown(this.formOptions.value.recordSeconds);
     this.store.dispatch(update({
       devices: this.devices.map(
-        x => new KinectDevice(x.serialNum, x.isOpened, path.join(this.formOptions.value.outputFolder, timestring, x.serialNum + '.mkv')))
+        x => new KinectDevice(x.serialNum, x.isOpened, this.formOptions.value.outputFolder + "\\" + timestring + "\\" + x.serialNum + '.mkv'))
     }));
   }
 }
