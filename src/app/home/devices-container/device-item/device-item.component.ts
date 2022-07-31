@@ -20,7 +20,7 @@ export class DeviceItemComponent implements OnInit {
   }
 
   openLastVideo(){
-    this.electronUtilService.execute('start ' + this.device?.historyVideoPath);
+    this.electronUtilService.execute('start "' + this.device?.historyVideoPath + '"');
   }
 
 }

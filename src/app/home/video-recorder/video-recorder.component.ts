@@ -135,7 +135,7 @@ export class VideoRecorderComponent implements OnInit, OnDestroy {
     this.lastTimeString = this.timestring;
     if (this.devices.length === 1) {
       if (this.devices[0]) {
-        commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device 0 --external-sync Standalone --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[0] as any).depthDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} ${option.outputFolder}\\${this.lastTimeString}\\${this.devices[0].serialNum}.mkv`);
+        commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device 0 --external-sync Standalone --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[0] as any).depthDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} "${option.outputFolder}\\${this.lastTimeString}\\${this.devices[0].serialNum}.mkv"`);
       }
       else {
         commandLines.push('');
@@ -144,9 +144,9 @@ export class VideoRecorderComponent implements OnInit, OnDestroy {
     else {
       this.devices.forEach((device, i) => {
         if (device && device === option.selectedMasterDevice) {
-          commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device ${i} --external-sync Master --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[i] as any).depthDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} ${option.outputFolder}\\${this.lastTimeString}\\${device.serialNum}.mkv`);
+          commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device ${i} --external-sync Master --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[i] as any).depthDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} "${option.outputFolder}\\${this.lastTimeString}\\${device.serialNum}.mkv"`);
         } else if (device) {
-          commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device ${i} --external-sync Subordinate --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[i] as any).depthDelay} --sync-delay ${(option.delay[i] as any).syncDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} ${option.outputFolder}\\${this.lastTimeString}\\${device.serialNum}.mkv`);
+          commandLines.push(`"C:\\Program Files\\Azure Kinect SDK v1.4.1\\tools\\k4arecorder.exe" --device ${i} --external-sync Subordinate --record-length ${option.recordSeconds} --color-mode ${option.selectedColorMode} --depth-mode ${option.selectedDepthMode} --depth-delay ${(option.delay[i] as any).depthDelay} --sync-delay ${(option.delay[i] as any).syncDelay} --rate ${option.selectedFPS} --imu ${option.imu ? 'ON' : 'OFF'} ${exposureControlPart} "${option.outputFolder}\\${this.lastTimeString}\\${device.serialNum}.mkv"`);
         } else {
           commandLines.push('');
         }
