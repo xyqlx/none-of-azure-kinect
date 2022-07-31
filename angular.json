@@ -1,12 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
+    "defaultCollection": "@angular-eslint/schematics",
+    "analytics": false
   },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-electron": {
+    "none-of-azure-kinect": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -112,27 +113,27 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular-electron:build"
+            "browserTarget": "none-of-azure-kinect:build"
           },
           "configurations": {
             "dev": {
-              "browserTarget": "angular-electron:build:dev"
+              "browserTarget": "none-of-azure-kinect:build:dev"
             },
             "production": {
-              "browserTarget": "angular-electron:build:production"
+              "browserTarget": "none-of-azure-kinect:build:production"
             },
             "web": {
-              "browserTarget": "angular-electron:build:web"
+              "browserTarget": "none-of-azure-kinect:build:web"
             },
             "web-production": {
-              "browserTarget": "angular-electron:build:web-production"
+              "browserTarget": "none-of-azure-kinect:build:web-production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-electron:build"
+            "browserTarget": "none-of-azure-kinect:build"
           }
         },
         "test": {
@@ -168,7 +169,7 @@
         }
       }
     },
-    "angular-electron-e2e": {
+    "none-of-azure-kinect-e2e": {
       "root": "e2e",
       "projectType": "application",
       "architect": {
@@ -183,5 +184,5 @@
       }
     }
   },
-  "defaultProject": "angular-electron"
+  "defaultProject": "none-of-azure-kinect"
 }

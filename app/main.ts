@@ -1,18 +1,23 @@
-import { app, BrowserWindow, screen } from 'electron';
+import { app, BrowserWindow, screen, ipcMain } from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
-import * as url from 'url';
+import { addKinectHandlerToIPCMain } from './KinectHandler';
+import { addUtilHandlerToIPCMain } from './UtilHandler';
 
 let win: BrowserWindow = null;
 const args = process.argv.slice(1),
   serve = args.some(val => val === '--serve');
 
 function createWindow(): BrowserWindow {
-
   const electronScreen = screen;
   const size = electronScreen.getPrimaryDisplay().workAreaSize;
 
-  // Create the browser window.
+  let preload_path = path.join(app.getAppPath(), 'preload.js');
+  if(serve){
+    preload_path = path.join(app.getAppPath(), 'app', 'preload.js');
+  }
+
+  // Create the browser window.D
   win = new BrowserWindow({
     x: 0,
     y: 0,
@@ -21,7 +26,8 @@ function createWindow(): BrowserWindow {
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve) ? true : false,
-      contextIsolation: false,  // false if you want to run e2e test with Spectron
+      contextIsolation: true,  // false if you want to run e2e test with Spectron
+      preload: preload_path,
     },
   });
 
@@ -40,11 +46,8 @@ function createWindow(): BrowserWindow {
       pathIndex = '../dist/index.html';
     }
 
-    win.loadURL(url.format({
-      pathname: path.join(__dirname, pathIndex),
-      protocol: 'file:',
-      slashes: true
-    }));
+    const homeUrl = new URL('file://' + path.join(__dirname, pathIndex));
+    win.loadURL(homeUrl.href);
   }
 
   // Emitted when the window is closed.
@@ -63,7 +66,16 @@ try {
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
   // Added 400 ms to fix the black background issue while using transparent window. More detais at https://github.com/electron/electron/issues/15947
-  app.on('ready', () => setTimeout(createWindow, 400));
+  // app.on('ready', () => setTimeout(createWindow, 400));
+  
+  app.whenReady().then(() => {
+    addUtilHandlerToIPCMain(ipcMain);
+    addKinectHandlerToIPCMain(ipcMain);
+    createWindow();
+    app.on('activate', function () {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
+  })
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () => {
@@ -73,15 +85,6 @@ try {
       app.quit();
     }
   });
-
-  app.on('activate', () => {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (win === null) {
-      createWindow();
-    }
-  });
-
 } catch (e) {
   // Catch Error
   // throw e;
