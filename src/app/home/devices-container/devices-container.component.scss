@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+}
+.no-device-prompt {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+}
+app-device-item {
+    margin-right: 10px;
+}

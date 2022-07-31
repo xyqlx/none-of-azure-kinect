@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="device-property">
+        <span>{{'DEVICE.DEVICE_INDEX' | translate}}</span>
+        <span>{{deviceIndex}}</span>
+    </div>
+    <div *ngIf="device">
+        <div class="device-property">
+            <span>{{'DEVICE.DEVICE_SERIALNUM' | translate}}</span>
+            <span>{{device?.serialNum}}</span>
+        </div>
+        <div class="device-property">
+            <span>{{'DEVICE.DEVICE_ISOPEN' | translate}}</span>
+            <span>{{(device?.isOpened ? 'DEVICE.DEVICE_ISOPEN_YES' : 'DEVICE.DEVICE_ISOPEN_NO' ) | translate}}</span>
+        </div>
+        <div>
+            <button mat-raised-button *ngIf="device.historyVideoPath" (click)="openLastVideo()">{{'DEVICE.OPEN_LAST_VIDEO' | translate}}</button>
+        </div>
+    </div>
+    
+    <div *ngIf="!device" class="device-undefined">
+        {{ 'PROMPT.DEVICE_UNDEFINED' | translate }}
+    </div>
+</div>

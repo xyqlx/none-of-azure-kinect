@@ -1,0 +1,9 @@
+<div class="container">
+    <app-function-item *ngFor="let func of functions; let i = index"
+        [name]="func.namePath | translate"
+        [description]="func.descriptionPath | translate"
+        [routerLink]="func.routerLink"
+        [selected]="func.selected"
+        (selectedChange)="changeSelect(i)">
+    </app-function-item>
+</div>

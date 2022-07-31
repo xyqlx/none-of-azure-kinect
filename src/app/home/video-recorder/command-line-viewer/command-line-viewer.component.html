@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="header">
+        {{ 'PROMPT.COMMAND_LINE' | translate }}
+        <button mat-raised-button [cdkCopyToClipboard]="commandLines.join('\n')" (cdkCopyToClipboardCopied)="copyToClipboardCopied($event)">
+            {{'PROMPT.COPY_TO_CLIPBOARD' | translate }}
+        </button>
+    </div>
+    <div *ngFor="let line of commandLines">
+        {{line}}
+    </div>
+</div>

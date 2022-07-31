@@ -1,7 +1,16 @@
 <div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-
-  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+  <div class="left-container">
+    <div class="function-container">
+      <app-function-contents></app-function-contents>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="devices-container">
+      <app-devices-container></app-devices-container>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="function-page-container">
+      <router-outlet ></router-outlet>
+    </div>
+  </div>
 </div>

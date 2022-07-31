@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 4px;
+    padding: 10px;
+    height: 160px;
+    width: 300px;
+}
+.device-property {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.device-undefined {
+    text-align: center;
+}

@@ -1,0 +1,73 @@
+<div class="container">
+    <form class="form" [formGroup]="formOptions">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.MASTER_DEVICE' | translate}} </mat-label>
+                <mat-select formControlName="selectedMasterDevice">
+                  <mat-option *ngFor="let device of devices" [value]="device">{{device?.serialNum}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.COLOR_MODE' | translate}} </mat-label>
+                <mat-select formControlName="selectedColorMode">
+                  <mat-option *ngFor="let colorMode of availableColorMode" [value]="colorMode">{{colorMode}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.FPS' | translate}} </mat-label>
+                <mat-select formControlName="selectedFPS">
+                  <mat-option *ngFor="let fps of availableFPS" [value]="fps">{{fps}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.DEPTH_MODE' | translate}} </mat-label>
+                <mat-select formControlName="selectedDepthMode">
+                  <mat-option *ngFor="let depthMode of availableDepthMode" [value]="depthMode">{{depthMode}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.EXPOSURE_CONTROL' | translate}}</mat-label>
+                <input formControlName="exposureControl" matInput>
+            </mat-form-field>
+            <mat-slide-toggle formControlName="imu">{{ 'DEVICE.IMU' | translate }}</mat-slide-toggle>
+        </div>
+        <div *ngIf="devices.length !== 0 && devices.length === formOptions.get('delay')['controls'].length" class="delay-container">
+            <div class="delay-item" formArrayName="delay" *ngFor="let device of formOptions.get('delay')['controls']; let i = index">
+                <div class="delay-item-row" [formGroupName]="i">
+                    <span class="delay-index">{{ 'DEVICE.DEVICE' | translate }}{{i}}</span>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{'DEVICE.DEPTH_DELAY' | translate}}</mat-label>
+                        <input formControlName="depthDelay" matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" *ngIf="!isMaster(i)">
+                        <mat-label>{{'DEVICE.SYNC_DELAY' | translate}}</mat-label>
+                        <input formControlName="syncDelay" matInput>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'DEVICE.RECORD_TIME' | translate}}</mat-label>
+                <input #recordSecondsInput formControlName="recordSeconds" matInput>
+            </mat-form-field>
+            <span>
+                <button *ngFor="let item of recommandedRecordSeconds" (click)="formOptions.patchValue({ recordSeconds: item.toString() })" mat-raised-button>{{item}}s</button>
+            </span>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" class="output-folder-field">
+                <mat-label>{{'DEVICE.OUTPUT_FOLDER' | translate}}</mat-label>
+                <input formControlName="outputFolder" matInput>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="command-line-container">
+        <app-command-line-viewer [commandLines]="commandLines"></app-command-line-viewer>
+    </div>
+    <div class="button-bar">
+        <button mat-raised-button (click)="startRecord()">🚀</button>
+    </div>
+</div>

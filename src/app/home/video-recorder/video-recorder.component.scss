@@ -1,0 +1,54 @@
+.container {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.button-bar {
+    margin-top: 10px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.form > div {
+    margin-right: 20px;
+    margin-top: -20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+mat-form-field {
+    margin-top: 20px;
+}
+.form > div > * {
+    margin-right: 10px;
+}
+.form > .delay-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.delay-item > mat-form-field {
+    margin-right: 10px;
+}
+.delay-item {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(197, 197, 197);
+    border-radius: 3px;
+}
+.delay-item-row > * {
+    margin-right: 5px;
+}
+.delay-index {
+    color: gray;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.output-folder-field {
+    width: 50%;
+}

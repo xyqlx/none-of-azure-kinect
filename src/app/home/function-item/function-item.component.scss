@@ -1,0 +1,26 @@
+.item-container {
+    height: 100px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+.item-container-hover {
+    border-width: 2px;
+    padding: 9px;
+}
+.name {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+.description {
+    font-size: 16px;
+}
+.selected-prompt {
+    margin-top: auto;
+    text-align: right;
+}

@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="no-device-prompt" *ngIf="devices.length === 0">
+        {{ 'PROMPT.NO_DEVICE' | translate }}
+    </div>
+    <app-device-item *ngFor="let device of devices; let i = index"
+        [deviceIndex]="i"
+        [device]="device">
+    </app-device-item>
+</div>

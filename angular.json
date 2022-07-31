@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics",
     "analytics": false
   },
   "version": 1,
@@ -183,6 +182,5 @@
         }
       }
     }
-  },
-  "defaultProject": "none-of-azure-kinect"
+  }
 }
