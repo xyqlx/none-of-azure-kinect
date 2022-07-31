@@ -9,13 +9,11 @@
 }
 .main-container {
     width: calc(85% - 15px);
+    margin-top: 10px;
+    margin-right: 10px;
     margin-left: 15px;
     display: flex;
     flex-direction: column;
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
     padding: 10px;
 }
 .devices-container {

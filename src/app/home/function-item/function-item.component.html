@@ -1,9 +1,9 @@
-<div class="item-container"
-    [ngClass]="{'item-container-hover': isHover}"
+<div class="item-container mat-elevation-z3"
+    [class.mat-elevation-z8]="isHover"
     (mouseenter)="isHover = true"
     (mouseleave)="isHover = false"
     (click)="onClick()">
     <div class="name">{{name}}</div>
     <div class="description">{{description}}</div>
-    <div *ngIf="selected" class="selected-prompt">{{ 'PROMPT.SELECTED' | translate }}</div>
+    <div *ngIf="selected" class="selected-prompt">✔️</div>
 </div>
