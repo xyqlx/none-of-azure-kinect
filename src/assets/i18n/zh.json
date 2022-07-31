@@ -1,0 +1,51 @@
+{
+  "PAGES": {
+    "HOME": {
+      "TITLE": "一切正常！",
+      "GO_TO_DETAIL": "转到详细页面",
+      "FUNCTIONS": {
+        "SHOT_RECORDER": "拍摄",
+        "SHOT_RECORDER_DESCRIPTION": "手动拍摄",
+        "VIDEO_RECORDER": "录制",
+        "VIDEO_RECORDER_DESCRIPTION": "调用k4arecorder录制"
+      }
+    },
+    "DETAIL": {
+      "TITLE": "详细页面",
+      "BACK_TO_HOME": "返回首页"
+    }
+  },
+  "PROMPT": {
+    "SELECTED": "已选中",
+    "DEVICE_ADD": "新设备插入",
+    "DEVICE_REMOVE": "设备拔出",
+    "COMMAND_LINE": "命令行预览",
+    "NO_DEVICE": "无连接设备",
+    "SELECT_FOLDER": "选择文件夹",
+    "START_RECORDING": "开始录制",
+    "DEVICE_UNDEFINED": "设备错误，可能是被占用",
+    "COPY_TO_CLIPBOARD": "复制",
+    "COPY_TO_CLIPBOARD_SUCCESS": "复制成功",
+    "COPY_TO_CLIPBOARD_FAILED": "复制失败"
+  },
+  "DEVICE": {
+    "DEVICE": "设备",
+    "DEVICE_INDEX": "设备索引",
+    "DEVICE_SERIALNUM": "设备序列号",
+    "DEVICE_ISOPEN": "参考设备占用状况",
+    "DEVICE_ISOPEN_YES": "开启",
+    "DEVICE_ISOPEN_NO": "关闭",
+    "DEVICE_SYNC": "设备同步状态",
+    "MASTER_DEVICE": "主设备",
+    "RECORD_TIME": "录制时间(秒)",
+    "COLOR_MODE": "分辨率",
+    "FPS": "帧率",
+    "DEPTH_MODE": "深度相机模式",
+    "EXPOSURE_CONTROL": "曝光模式",
+    "IMU": "IMU传感器",
+    "DEPTH_DELAY": "深度相机相对颜色相机延迟",
+    "SYNC_DELAY": "从设备相对主设备延迟",
+    "OUTPUT_FOLDER": "录像输出文件夹",
+    "OPEN_LAST_VIDEO": "打开上次录像"
+  }
+}

@@ -2,11 +2,48 @@
   "PAGES": {
       "HOME": {
           "TITLE": "App works !",
-          "GO_TO_DETAIL": "Go to Detail"
+          "GO_TO_DETAIL": "Go to Detail",
+          "FUNCTIONS": {
+            "SHOT_RECORDER": "Shot & Record",
+            "VIDEO_RECORDER": "Call Recorder"
+          }
       },
       "DETAIL": {
         "TITLE": "Detail page !",
         "BACK_TO_HOME": "Back to Home"
     }
+  },
+  "PROMPT": {
+    "SELECTED": "selected",
+    "DEVICE_ADD": "new device in",
+    "DEVICE_REMOVE": "device out",
+    "COMMAND_LINE": "command line",
+    "NO_DEVICE": "no devices connected",
+    "SELECT FOLDER": "select folder",
+    "START_RECORDING": "start recording",
+    "DEVICE_UNDEFINED": "device error, maybe used by someone",
+    "COPY_TO_CLIPBOARD": "copy to clipboard",
+    "COPY_TO_CLIPBOARD_SUCCESS": "copy to clipboard success",
+    "COPY_TO_CLIPBOARD_FAILED": "copy to clipboard failed"
+  },
+  "DEVICE": {
+    "DEVICE": "device",
+    "DEVICE_INDEX": "device index",
+    "DEVICE_SERIALNUM": "device serial number",
+    "DEVICE_ISOPEN": "if device is open",
+    "DEVICE_ISOPEN_YES": "yes",
+    "DEVICE_ISOPEN_NO": "no",
+    "DEVICE_SYNC": "device sync status",
+    "MASTER_DEVICE": "master device",
+    "RECORD_TIME": "record time(s)",
+    "COLOR_MODE": "resolution",
+    "FPS": "fps",
+    "DEPTH_MODE": "depth mode",
+    "EXPOSURE_CONTROL": "exposure control",
+    "IMU": "IMU",
+    "DEPTH_DELAY": "depth camera delay",
+    "SYNC_DELAY": "delay off the master",
+    "OUTPUT_FOLDER": "output folder",
+    "OPEN_LAST_VIDEO": "open last video"
   }
 }
